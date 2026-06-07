@@ -374,7 +374,9 @@ Login
       <div class="user-pill">
         <div class="avatar">A</div>
         <div>
-          <div class="user-name">Administrator</div>
+          <div class="user-name" id=""currentUser>
+            Administrator
+          </div>
           <div class="user-role">System Admin</div>
           <button class="tb-btn" onclick="logout()" style="width:100%;margin-top:10px;">
   Logout
@@ -991,7 +993,10 @@ function login(){
     user === "admin" &&
     pass === "AdminALH2"
   ){
-
+  localStorage.setItem(
+    "username",
+    user
+  );
     document.getElementById(
   "dashboard"
 ).style.display = "flex";
@@ -1023,6 +1028,18 @@ if(
   document.getElementById(
     "loginModal"
   ).style.display = "flex";
+
+}
+const currentUser =
+  localStorage.getItem(
+    "username"
+  );
+
+if(currentUser){
+
+  document.getElementById(
+    "currentUser"
+  ).textContent = currentUser;
 
 }
 </script>
