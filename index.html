@@ -34,9 +34,10 @@ style="width:100%;padding:12px;margin-bottom:10px;"
 >
 
 <input
-id="password"
-type="password"
-placeholder="Password"
+  id="password"
+  type="password"
+  placeholder="Password"
+  onkeypress="if(event.key==='Enter') login();"
 style="width:100%;padding:12px;margin-bottom:15px;"
 >
 
@@ -374,7 +375,7 @@ Login
       <div class="user-pill">
         <div class="avatar">A</div>
         <div>
-          <div class="user-name" id=""currentUser>
+          <div class="user-name" id="currentUser">
             Administrator
           </div>
           <div class="user-role">System Admin</div>
