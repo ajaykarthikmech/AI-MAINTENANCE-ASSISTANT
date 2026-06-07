@@ -1003,9 +1003,9 @@ function login(){
     "username",
     user
   );
-  document.getElementById(
-  "currentUser"
-).textContent = user;
+if(document.getElementById("currentUser")){
+  document.getElementById("currentUser").textContent = user;
+}
 
   document.getElementById(
     "dashboard"
