@@ -325,6 +325,9 @@
         <div>
           <div class="user-name">Administrator</div>
           <div class="user-role">System Admin</div>
+          <button class="tb-btn" onclick="logout()" style="width:100%;margin-top:10px;">
+  Logout
+</button>
         </div>
       </div>
     </div>
@@ -904,4 +907,7 @@
   }
 
   document.getElementById('ai-input').addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg()});
+function logout() {
+  alert("Logged out successfully");
+}
 </script>
