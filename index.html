@@ -37,8 +37,8 @@ style="width:100%;padding:12px;margin-bottom:10px;"
   id="password"
   type="password"
   placeholder="Password"
-  onkeypress="if(event.key==='Enter') login();"
-style="width:100%;padding:12px;margin-bottom:15px;"
+  onkeydown="if(event.key === 'Enter') login();"
+  style="width:100%;padding:12px;margin-bottom:15px;"
 >
 
 <button
@@ -380,7 +380,10 @@ Login
           </div>
           <div class="user-role">System Admin</div>
           <button class="tb-btn" onclick="logout()" style="width:100%;margin-top:10px;">
-  Logout
+  <button class="tb-btn" onclick="changePassword()" style="width:100%;margin-top:10px;">
+  Change Password
+</button>
+            Logout
 </button>
         </div>
       </div>
@@ -1050,6 +1053,33 @@ if(
   document.getElementById(
     "currentUser"
   ).textContent = currentUser;
+
+}
+function changePassword(){
+
+  const oldPass =
+    prompt("Enter current password");
+
+  if(oldPass !== localStorage.getItem("password")){
+    alert("Wrong current password");
+    return;
+  }
+
+  const newPass =
+    prompt("Enter new password");
+
+  if(!newPass){
+    return;
+  }
+
+  localStorage.setItem(
+    "password",
+    newPass
+  );
+
+  alert(
+    "Password changed successfully"
+  );
 
 }
 
