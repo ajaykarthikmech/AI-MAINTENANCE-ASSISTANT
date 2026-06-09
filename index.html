@@ -434,29 +434,28 @@ Invalid username or password
       <!-- DASHBOARD PAGE -->
       <div class="page active" id="page-dashboard">
         <div class="kpi-grid">
-          <div class="kpi blue">
-            <div class="kpi-label">Total Machines</div>
-            <div class="kpi-val">0</div>
-            <div class="kpi-meta">
-              <span>No machines registered yet</span>
-            </div>
-          </div>
-          <div class="kpi green">
-            <div class="kpi-label">Active Faults</div>
-            <div class="kpi-val">0</div>
-            <div class="kpi-meta"><span>System clean</span></div>
-          </div>
-          <div class="kpi amber">
-            <div class="kpi-label">Open Work Orders</div>
-            <div class="kpi-val">0</div>
-            <div class="kpi-meta"><span>No work orders</span></div>
-          </div>
-          <div class="kpi red">
-            <div class="kpi-label">MTTR (avg hrs)</div>
-            <div class="kpi-val">—</div>
-            <div class="kpi-meta"><span>Awaiting data</span></div>
-          </div>
-        </div>
+
+<div class="kpi blue">
+<div class="kpi-label">Sections</div>
+<div class="kpi-val">5</div>
+</div>
+
+<div class="kpi green">
+<div class="kpi-label">Machines</div>
+<div class="kpi-val">0</div>
+</div>
+
+<div class="kpi amber">
+<div class="kpi-label">PLCs</div>
+<div class="kpi-val">0</div>
+</div>
+
+<div class="kpi red">
+<div class="kpi-label">Drivers & Tools</div>
+<div class="kpi-val">0</div>
+</div>
+
+</div>
 
         <!-- SETUP NOTICE -->
         <div style="background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(139,92,246,.08));border:1px solid rgba(59,130,246,.2);border-radius:var(--r2);padding:20px;margin-bottom:20px">
@@ -476,49 +475,76 @@ Invalid username or password
         </div>
 
         <div class="row2">
-          <div class="card">
-            <div class="card-head">
-              <span class="card-title">Fault Trend (Last 30 days)</span>
-              <span class="card-action">View all</span>
-            </div>
-            <div class="empty" style="padding:24px">
-              <div class="empty-icon">📊</div>
-              <div style="font-size:12px;color:var(--text2)">No fault data yet. Charts will populate after faults are logged.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-head">
-              <span class="card-title">Recent Activity</span>
-              <span class="card-action">All logs</span>
-            </div>
-            <div class="empty" style="padding:20px">
-              <div class="empty-icon">📋</div>
-              <div style="font-size:12px;color:var(--text2)">Activity log is empty. Actions by users will appear here.</div>
-            </div>
-          </div>
-        </div>
 
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-          <div class="card">
-            <div class="card-head"><span class="card-title">Machine Status</span></div>
-            <div class="empty" style="padding:16px">
-              <div style="font-size:11px;color:var(--text2)">Register machines to see status breakdown.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-head"><span class="card-title">Manual Library</span></div>
-            <div class="empty" style="padding:16px">
-              <div style="font-size:11px;color:var(--text2)">Upload manuals to build the knowledge base.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-head"><span class="card-title">Team Overview</span></div>
-            <div class="empty" style="padding:16px">
-              <div style="font-size:11px;color:var(--text2)">Create users to see team allocation.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="card">
+
+<div class="card-head">
+<span class="card-title">
+Production Sections
+</span>
+</div>
+
+<div style="display:grid;gap:10px">
+
+<div class="machine-card">
+MDV TRIM
+<br>
+<small>0 Machines</small>
+</div>
+
+<div class="machine-card">
+LINE 1
+<br>
+<small>0 Machines</small>
+</div>
+
+<div class="machine-card">
+LINE 2
+<br>
+<small>0 Machines</small>
+</div>
+
+<div class="machine-card">
+SECTION 4
+<br>
+<small>0 Machines</small>
+</div>
+
+<div class="machine-card">
+SECTION 5
+<br>
+<small>0 Machines</small>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-head">
+<span class="card-title">
+Asset Distribution
+</span>
+</div>
+
+<div style="
+height:250px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+color:#8892a4;
+">
+
+Pie Chart
+PLCs / Drivers / Tools
+
+</div>
+
+</div>
+
+</div>
 
       <!-- MACHINES PAGE -->
       <div class="page" id="page-machines">
@@ -652,7 +678,7 @@ Invalid username or password
             <div class="msg">
               <div class="msg-avatar ai">AI</div>
               <div class="msg-bubble ai">
-                <strong style="color:var(--accent);font-size:13px">MDV-CAS AI Assistant</strong><br><br>
+                <strong style="color:var(--accent);font-size:13px">MDV-CAS Global Copilot</strong><br><br>
                 Hello! I'm your AI-powered maintenance assistant. I can help with:<br><br>
                 • <strong>PLC troubleshooting</strong> — alarm codes, error diagnosis, parameter checks<br>
                 • <strong>Root cause analysis</strong> — systematic fault investigation<br>
@@ -890,16 +916,67 @@ Invalid username or password
 
   let wizStep = 1;
   function wizNext(step){
-    document.getElementById('ws'+step).classList.remove('active');
-    document.getElementById('sd'+step).classList.remove('active');
-    document.getElementById('sd'+step).classList.add('done');
-    step++;
-    if(step<=7){
-      document.getElementById('ws'+step).classList.add('active');
-      document.getElementById('sd'+step).classList.add('active');
-      wizStep=step;
-    }
-  }
+
+const currentStep =
+document.getElementById(
+'ws'+step
+);
+
+const inputs =
+currentStep.querySelectorAll(
+'input, select'
+);
+
+for(let i=0;i<inputs.length;i++){
+
+if(
+inputs[i].value.trim()===""
+){
+
+alert(
+'Please complete all fields'
+);
+
+return;
+}
+
+}
+
+currentStep.classList.remove(
+'active'
+);
+
+document.getElementById(
+'sd'+step
+).classList.remove(
+'active'
+);
+
+document.getElementById(
+'sd'+step
+).classList.add(
+'done'
+);
+
+step++;
+
+if(step<=7){
+
+document.getElementById(
+'ws'+step
+).classList.add(
+'active'
+);
+
+document.getElementById(
+'sd'+step
+).classList.add(
+'active'
+);
+
+}
+
+}
   function wizBack(step){
     document.getElementById('ws'+step).classList.remove('active');
     document.getElementById('sd'+step).classList.remove('active');
@@ -1102,7 +1179,52 @@ function changePassword(){
   alert(
     "Password changed successfully"
   );
+<div class="page" id="page-sections">
 
+<h2 style="margin-bottom:20px;">
+Production Sections
+</h2>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<h3>MDV TRIM</h3>
+<button class="tb-btn">
++ Add Machine
+</button>
+</div>
+
+<div class="machine-card">
+<h3>LINE 1</h3>
+<button class="tb-btn">
++ Add Machine
+</button>
+</div>
+
+<div class="machine-card">
+<h3>LINE 2</h3>
+<button class="tb-btn">
++ Add Machine
+</button>
+</div>
+
+<div class="machine-card">
+<h3>SECTION 4</h3>
+<button class="tb-btn">
++ Add Machine
+</button>
+</div>
+
+<div class="machine-card">
+<h3>SECTION 5</h3>
+<button class="tb-btn">
++ Add Machine
+</button>
+</div>
+
+</div>
+
+</div>
 }
 
 </script>
